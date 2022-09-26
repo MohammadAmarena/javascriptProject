@@ -1,0 +1,50 @@
+* {
+	box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    &::selection {
+        background-color: $main-color;
+        color: $white;
+    }
+}
+html {
+	scroll-behavior: smooth;
+    body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: $main-color !important;
+        .container {
+            margin: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            @include breakpoints(mobile) {
+                width: 100%;
+            }
+            @include breakpoints(small) {
+                width: 750px;
+            }
+            @include breakpoints(medium) {
+                width: 970px;
+            }
+            @include breakpoints(large) {
+                width: 1170px;
+            }
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+
+$grid_cols: 12;
+
+@for $i from 1 through $grid_cols {
+	.col-#{$i} {
+		width: percentage($i / $grid_cols);
+	}
+}

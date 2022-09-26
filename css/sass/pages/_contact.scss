@@ -1,0 +1,86 @@
+main {
+    display: flex;
+    @include breakpoints(mobile) {
+        flex-flow: column wrap;
+    }
+    @include breakpoints(small) {
+        flex-flow: column wrap;
+    }
+    height: 100%;
+    .form {
+        padding-top: 50px;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;;
+        min-height: 100%;
+        min-width: 50%;
+        background-image: url(https://www.desktopbackground.org/download/800x600/2014/11/02/849589_space-tumblr-backgrounds-black_1216x720_h.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        @media (max-width: 767px) {
+            min-height: 700px;
+        }
+        label {
+            color: $white;
+            padding: 7px;
+        }
+        input {
+            display: block;
+            background-color: transparent;
+            padding: 7px;
+            color: $white;
+            box-shadow: 0 0 10px 6px inset $white;
+            border-radius: 6px;
+            &::placeholder {
+                color: $white;
+            }
+        }
+        #msg {
+            background-color: transparent;
+            display: block;
+            box-shadow: 0 0 10px $white;
+            &::placeholder {
+                color: $white;
+            }
+        }
+        button {
+            margin: auto;
+            display: block;
+            width: 30%;
+            padding: 10px;
+            @include btn;
+        }
+    }
+    .next {
+        background-image: url(https://www.desktopbackground.org/download/800x600/2014/11/02/849589_space-tumblr-backgrounds-black_1216x720_h.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 600px;
+        min-height: 100%;
+        max-width: 100%;
+        display: none;
+        color: $white;
+        padding: 50px;
+        @media (min-width: 767px) {
+            display: block;
+        }
+        h5 {
+            font-size: 20px;
+        }
+        p {
+            font-weight: bold;
+        }
+        ul {
+            li {
+                padding-left: 30px;
+            }
+        }
+    }
+}
+
+
+
+footer {
+    position: absolute !important;
+    bottom: 0;
+}

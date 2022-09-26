@@ -1,0 +1,391 @@
+.randomColor {
+  display: none;
+}
+.loginForm {
+  opacity: 0;
+  height: 500px;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  width: 400px;
+  transform: translate(-50%);
+  z-index: -100;
+  background-color: $white;
+  border-radius: 7px;
+  @include boxShadow;
+  .title {
+    text-align: center;
+    padding: 5px;
+  }
+  form {
+    padding: 20px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 1.5rem;
+
+    input,
+    button,
+    div {
+      width: 80%;
+      padding: 0.2rem;
+      @include boxShadow;
+    }
+    input {
+    }
+    p {
+      a {
+        color: $green;
+        text-decoration: underline;
+      }
+    }
+    button {
+      @include btn;
+    }
+    span {
+      font-weight: bold;
+    }
+    div {
+      cursor: pointer;
+      @include btn;
+    }
+  }
+}
+.links {
+  padding: 0 20px;
+  @include flexCenter;
+  position: relative;
+  @include breakpoints(mobile) {
+    flex-flow: column;
+  }
+  @media (min-width: 500px) and (max-width: 890px) {
+    flex-flow: column;
+  }
+  ul {
+    @include flexCenter;
+    width: 60%;
+    @include breakpoints(mobile) {
+      width: 100%;
+    }
+
+    li {
+      border-right: 3px solid;
+      background-color: $green;
+      padding: 5px 15px;
+      @include breakpoints(mobile) {
+        padding: 0;
+      }
+      &:hover {
+        background-color: $main-color;
+        transform: scale(1.1);
+      }
+      a {
+        color: $white;
+      }
+    }
+  }
+  .contact-icons {
+    @include flexCenter;
+    i {
+      cursor: pointer;
+      color: $white;
+      margin: 5px;
+      transition: $main-transition;
+      @include boxShadow;
+      &:hover {
+        transform: scale(1.5);
+        color: $green;
+      }
+    }
+    i:last-child {
+      width: 0;
+    }
+  }
+}
+
+.landing {
+  .container {
+    margin: 20px auto;
+    width: 80%;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    @include boxShadow;
+    .slide-number {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      background-color: $main-color;
+      color: $white;
+      padding: 5px 10px;
+      font-size: 20px;
+      z-index: 2;
+      border-radius: 5px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      display: block;
+      position: absolute;
+      opacity: 0;
+      transition: $main-transition;
+      z-index: 1;
+      box-shadow: 0 0 10px;
+    }
+    img.active {
+      opacity: 1;
+    }
+  }
+  .slider-controls {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    .prev,
+    .next {
+      font-size: 16px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 50vw;
+      padding: 5px;
+      user-select: none;
+      width: 5%;
+      i {
+        color: $green;
+      }
+      &.disabled {
+        background-color: $white;
+        cursor: no-drop;
+      }
+    }
+    .indicators {
+      width: 60%;
+      float: left;
+      ul {
+        margin: 0;
+        text-align: center;
+        li {
+          display: inline-block;
+          background-color: $green;
+          color: $main-color;
+          font-weight: bold;
+          height: 30px;
+          width: 30px;
+          border-radius: 4px;
+          margin: 0 2px;
+          line-height: 30px;
+          cursor: pointer;
+          &.active {
+            background-color: $white;
+            color: $main-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.chat {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  color: $green;
+  text-shadow: 4px -4px 5px $white;
+  z-index: 1;
+  i {
+    animation: scale 2.5s infinite linear;
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pop-up {
+  border: 1px solid $green;
+  background-color: $white;
+  box-shadow: 0 0 7px $green;
+  width: 25%;
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%);
+  height: 250px;
+  @include dFlex;
+  flex-flow: column wrap;
+  align-items: center;
+  opacity: 0;
+  @include breakpoints(mobile) {
+    width: 80%;
+  }
+  @include breakpoints(small) {
+    width: 50%;
+  }
+  .title {
+    i {
+      padding: 10px;
+      color: $white;
+      text-shadow: 3px -4px 1px $main-color;
+    }
+  }
+  .buttons {
+    width: 100%;
+    @include dFlex;
+    button {
+      padding: 5px 10px;
+      @include btn;
+      color: $white;
+      background-color: $main-color;
+    }
+  }
+}
+
+.arrows {
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  cursor: pointer;
+  z-index: 1;
+  animation: goDown 1.1s linear infinite;
+  color: $green;
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes goDown {
+  0% {
+    bottom: 0;
+  }
+  10% {
+    bottom: 5px;
+  }
+  50% {
+    bottom: 10px;
+  }
+  70% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: 10px;
+  }
+}
+
+.products {
+  padding: 0.5rem;
+  .heading {
+    @include heading;
+    color: $white;
+  }
+  #cards {
+    @include dFlex;
+    @include card;
+    .card {
+      background-color: $secondColor;
+      color: $white;
+    }
+  }
+}
+.categories {
+  padding: 2rem;
+  @include heading;
+  overflow-x: hidden;
+  color: $green;
+  #cards2 {
+    @include dFlex;
+    @include card;
+    .card {
+      border-radius: 50%;
+      background-color: $white;
+      color: $main-color;
+      padding: 20px;
+      box-shadow: 0 0 10px 2px $main-color inset;
+      &:first-child {
+        transform: translateX(-100vw);
+        transition: 1s;
+      }
+      &:nth-child(2) {
+        transform: translateY(-100vh);
+      }
+      &:nth-child(3) {
+        transform: translateX(100vw);
+      }
+      &:nth-child(4) {
+        transform: translateX(-100vw);
+      }
+      &:last-child {
+        transform: translateX(100vw);
+      }
+      &:hover {
+        background-color: $main-color;
+        color: $white;
+      }
+      img {
+        border-radius: 60px;
+      }
+      &:hover img {
+        border-radius: 50vw;
+      }
+    }
+  }
+}
+
+@keyframes CarsdScale {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.movingSlider {
+  display: none;
+  margin: 100px 0;
+  @media (min-width: 768px) {
+    display: block;
+  }
+  .container {
+    display: flex;
+    overflow: hidden;
+    &:hover img {
+      animation-play-state: paused;
+    }
+    img {
+      width: 30%;
+      height: 250px;
+      padding: 2px;
+      opacity: 0.8;
+      transition: 0.5s;
+      animation: movingSlider 30s linear infinite;
+      &:hover {
+        width: 400px;
+        height: 300px;
+        cursor: pointer;
+        opacity: 1;
+        transform: scale(1.5);
+      }
+    }
+  }
+}
+
+@keyframes movingSlider {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-1936px);
+  }
+}

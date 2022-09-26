@@ -1,0 +1,78 @@
+footer {
+    position: static;
+    bottom: 0;
+    left: 0;
+    background-color: $green;
+    width: 100%;
+    @include boxShadow;
+    color: $white;
+    position: relative;
+    padding: 15px;
+    @include breakpoints(mobile) {
+        bottom: 0;
+    }
+    p:first-child {
+        width: fit-content;
+        color: $white;
+        .fa-heart {
+            color: red;
+        }
+        a {
+            color: $secondColor;
+        }
+    }
+    .contact-icons {
+        margin-top: -20px;
+        padding-bottom: 10px;
+        width: 600px;
+        @media (min-width: 400px) and (max-width: 900px) {
+            display: none;
+        }
+        i {
+            float: right;
+            padding: 0 15px;
+            color: $main-color;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+    p {
+        margin-top: 15px;
+        color: $secondColor;
+        width: fit-content;
+    }
+    .policy {
+        a {
+            color: $white;
+            text-decoration: underline;
+            width: fit-content;
+            text-align: center;
+        }
+    }
+    .footer-links {
+        width: 30%;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        @include breakpoints(mobile) {
+            visibility: hidden;
+        }
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            li {
+                background-color: $main-color;
+                @include btn;
+                padding: 5px;
+                a {
+                    color: $main-color;
+                }
+            }
+        }
+    }
+    .clear {
+        clear: both;
+    }
+}
