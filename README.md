@@ -1,2 +1,4 @@
-# javascriptProject
-Javascript End Project
+# shopping cart
+
+## vanilla javascript project
+
